@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Mvc1.Services;
+using Scrutor;
 
 namespace Mvc1
 {
@@ -28,8 +29,6 @@ namespace Mvc1
             services.AddControllersWithViews();
 
             services.AddScoped<Cars, Cars>();
-
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
