@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Mvc1.Services;
+
 namespace Mvc1
 {
     public class Startup
@@ -24,6 +26,10 @@ namespace Mvc1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddScoped<Cars, Cars>();
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

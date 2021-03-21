@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Mvc1.Models;
 
+
 namespace Mvc1.Controllers
 {
     public class HomeController : Controller
@@ -16,6 +17,20 @@ namespace Mvc1.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+        }
+
+        public IActionResult Jedi()
+        {
+          var i=0;
+          var list = new List<string>();
+          System.Reflection.Assembly.GetEntryAssembly().GetTypes().ToList()
+          .ForEach(
+            e => {
+              list.Add($"({i++}) {e.Name}");
+            }
+          );
+
+          return Json(new { Name = "Luke Skywalker", GetTypesList = list });
         }
 
         public IActionResult Index()

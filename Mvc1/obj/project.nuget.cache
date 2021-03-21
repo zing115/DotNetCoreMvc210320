@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "NyEuNR/ycHLIqSQJ/6Sco8Zl+MOx/b8zpqJDfs2JBK1deHlA4eI9i2eA5C8lUmMTIGuLL5uPannZNdaH1+378A==",
+  "dgSpecHash": "isuwGRYtKnk5vvQ0tSl+AF4BIouZ0PeVSe4zuBVW48yFGIsB5VMB7DBqldtzuC1F/h6E0+87kXhH05oeuMbVxQ==",
   "success": true,
-  "projectFilePath": "a:\\Z\\GIT\\DotNetCoreMvc210320\\Mvc1\\Mvc1.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "A:\\Z\\GIT\\DotNetCoreMvc210320\\Mvc1\\Mvc1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zing\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.9\\microsoft.extensions.dependencyinjection.abstractions.3.1.9.nupkg.sha512",
+    "C:\\Users\\zing\\.nuget\\packages\\microsoft.extensions.dependencymodel\\3.1.6\\microsoft.extensions.dependencymodel.3.1.6.nupkg.sha512",
+    "C:\\Users\\zing\\.nuget\\packages\\scrutor\\3.3.0\\scrutor.3.3.0.nupkg.sha512",
+    "C:\\Users\\zing\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
   "logs": []
 }
