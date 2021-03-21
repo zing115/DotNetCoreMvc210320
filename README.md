@@ -1,15 +1,20 @@
 # DotNetCoreMvc210320
 
-# 
+# Scrutor
 
 dotnet add package Scrutor --version 3.3.0
 
-NuGet Gallery | Scrutor 3.3.0
+## NuGet Gallery | Scrutor 3.3.0
 https://www.nuget.org/packages/Scrutor/
 
-Scrutor - Google 搜尋
+## khellang/Scrutor: Assembly scanning and decoration extensions for Microsoft.Extensions.DependencyInjection
+https://github.com/khellang/Scrutor
+
+## Scrutor - Google 搜尋
 https://www.google.com/search?q=Scrutor&oq=Scrutor&aqs=chrome..69i57j69i60l2&sourceid=chrome&ie=UTF-8
 
+## Scrutor - Google 搜尋
+https://www.google.com/search?q=Scrutor&sxsrf=ALeKk03WEx6-r2QFpmifopXy6fpvCERQ5Q:1616319081235&source=lnt&tbs=lr:lang_1zh-TW&lr=lang_zh-TW&sa=X&ved=2ahUKEwjXurjlicHvAhVDG6YKHV_fC4MQpwV6BAgMECE&biw=1366&bih=1034
 
 
 # 
