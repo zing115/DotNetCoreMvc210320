@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Js5vtLqEs9hg8tffyiTzAXCM8kWRe5Vg4Nm/sduVpuC+a/jg9RUE2TkM5lNrXjn1zeSqGjZ/1F36u1gKPoOGWA==",
+  "success": true,
+  "projectFilePath": "A:\\Z\\GIT\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zing\\.nuget\\packages\\autofac\\6.1.0\\autofac.6.1.0.nupkg.sha512",
+    "C:\\Users\\zing\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",
+    "C:\\Users\\zing\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\zing\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
