@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "A:\\Z\\GIT\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj": {}
+    "C:\\Z\\git\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj": {}
   },
   "projects": {
-    "A:\\Z\\GIT\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj": {
+    "C:\\Z\\git\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Z\\GIT\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj",
+        "projectUniqueName": "C:\\Z\\git\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj",
         "projectName": "Mvc1Autofac",
-        "projectPath": "A:\\Z\\GIT\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj",
-        "packagesPath": "C:\\Users\\zing\\.nuget\\packages\\",
-        "outputPath": "A:\\Z\\GIT\\DotNetCoreMvc210320\\Mvc1Autofac\\obj\\",
+        "projectPath": "C:\\Z\\git\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj",
+        "packagesPath": "C:\\Users\\polym\\.nuget\\packages\\",
+        "outputPath": "C:\\Z\\git\\DotNetCoreMvc210320\\Mvc1Autofac\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\zing\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
+          "C:\\Users\\polym\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -29,7 +28,6 @@
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 18.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -76,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
