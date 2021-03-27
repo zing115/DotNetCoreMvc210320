@@ -45,8 +45,8 @@ namespace Mvc1Autofac
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddMvcCore().AddControllersAsServices(); // => for Controller PropertiesAutowired
       services.AddControllersWithViews();
-
       // Add services to the collection. Don't build or return
       // any IServiceProvider or the ConfigureContainer method
       // won't get called. Don't create a ContainerBuilder
@@ -69,7 +69,7 @@ namespace Mvc1Autofac
       builder.RegisterType<UseTheForce>().AsSelf().PropertiesAutowired();
       builder.RegisterType<Jedi>().AsSelf().PropertiesAutowired();
       builder.RegisterType<Cars>().As<ICars>().PropertiesAutowired();
-      //builder.RegisterType<HomeController>().As<Controller>().PropertiesAutowired();
+      builder.RegisterType<HomeController>().AsSelf().PropertiesAutowired();
     }
 
     // Configure is where you add middleware. This is called after

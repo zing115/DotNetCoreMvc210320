@@ -1,14 +1,19 @@
 ﻿@using Mvc1Autofac.Services
-@inject Jedi Jedi
+@inject UseTheForce TheForce
+@model UseTheForce
 @{
   ViewData["Title"] = "Home Page";
   
-  Jedi.Name = "Luke Skywalker";
+  TheForce.Jedi.Name = "Luke Skywalker";
+  TheForce.Cars.Brand = "Toyota";
+  TheForce.Cars.Name = "GR-86";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    <span class="btn btn-primary"> @Jedi.GetName() </span>
+    <span class="btn btn-primary"> @TheForce.Jedi.GetName() </span>
+    <span class="btn btn-warning"> @TheForce.Cars.GetBrand() @TheForce.Cars.GetName() </span>
+    <span class="btn btn-success"> @Model.Cars.GetName() </span>
 </div>

@@ -14,27 +14,29 @@ namespace Mvc1Autofac.Controllers
 {
   public class HomeController : Controller
   {
-    public UseTheForce UseTheForce { get; set; }
+    public UseTheForce TheForce { get; set; }
 
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger, UseTheForce UseTheForce)
+    public HomeController(ILogger<HomeController> logger)//, UseTheForce UseTheForce)
     {
       _logger = logger;
-      this.UseTheForce = UseTheForce;
+      //this.UseTheForce = UseTheForce;
     }
 
     public IActionResult Test()
     {
-      UseTheForce.Jedi.Name = "Obiwan Kenobi";
-      UseTheForce.Cars.Name = "Toyota GR-86";
+      TheForce.Jedi.Name = "Obiwan Kenobi";
+      TheForce.Cars.Name = "Toyota GR-86";
 
-      return Json(new { UseTheForce.Jedi, UseTheForce.Cars });
+      return Json(new { TheForce.Jedi, TheForce.Cars });
     }
 
     public IActionResult Index()
     {
-      return View();
+      TheForce.Cars.Name = "Nissan 300Z";
+
+      return View(TheForce);
     }
 
     public IActionResult Privacy()
