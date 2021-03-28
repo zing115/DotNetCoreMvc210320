@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 
 using Mvc1Autofac.Controllers;
 using Mvc1Autofac.Services;
+using Mvc1Autofac.Shared;
 
 namespace Mvc1Autofac
 {
@@ -38,7 +41,7 @@ namespace Mvc1Autofac
 
     //public IConfiguration Configuration { get; }
     public IConfigurationRoot Configuration { get; private set; }
-    public ILifetimeScope AutofacContainer { get; private set; }    
+    public ILifetimeScope AutofacContainer { get; private set; }
 
     // ConfigureServices is where you register dependencies. This gets
     // called by the runtime before the ConfigureContainer method, below.
@@ -66,10 +69,44 @@ namespace Mvc1Autofac
       // for you.
       // ** 從這裡注入要用的型別 ** //
       //builder.RegisterModule(new MyApplicationModule());
-      builder.RegisterType<UseTheForce>().AsSelf().PropertiesAutowired();
+
+      "Mvc1Autofac"
+        .Trim().Split(',').ToList().ForEach(_namespace =>
+        {
+          Assembly.Load(_namespace).GetTypes()
+            .Where(_types => !_types.IsInterface)
+            .Where(_types =>
+              _types.GetCustomAttributes().Contains(new Inject()) ||
+              _types.Name.EndsWith("Controller", StringComparison.Ordinal) ||
+              _types.Name.EndsWith("Force", StringComparison.Ordinal) ||
+              _types.Name.EndsWith("_Autofac", StringComparison.Ordinal) ||
+              _types.Name.EndsWith("_Table", StringComparison.Ordinal)
+            ).ToList().ForEach(_type =>
+            { //if (!_type.IsInterface)
+              builder.RegisterType(_type).As(
+                Assembly.Load(_namespace).GetTypes().FirstOrDefault(_interfaceType => _interfaceType.Name.Equals($"I{_type.Name}", StringComparison.Ordinal)) ?? _type
+              ).PropertiesAutowired();
+            });
+          Assembly.Load(_namespace).GetTypes()
+            .Where(_types => !_types.IsInterface)
+            .Where(_types =>
+              _types.GetCustomAttributes().Contains(new InjectSingleton())
+            ).ToList().ForEach(_type =>
+            { //if (!_type.IsInterface)
+              builder.RegisterType(_type).As(
+                Assembly.Load(_namespace).GetTypes().FirstOrDefault(_interfaceType => _interfaceType.Name.Equals($"I{_type.Name}", StringComparison.Ordinal)) ?? _type
+              ).SingleInstance().PropertiesAutowired();
+            });
+          /*
+          builder.RegisterAssemblyTypes(Assembly.Load(_namespace))
+            .Where(type => type.Name.EndsWith("_Autofac", StringComparison.Ordinal))
+            .AsSelf().PropertiesAutowired();
+          */
+        });
+      //builder.RegisterType<UseTheForce>().AsSelf().PropertiesAutowired();
       builder.RegisterType<Jedi>().AsSelf().PropertiesAutowired();
+      //builder.RegisterType<HomeController>().AsSelf().PropertiesAutowired();
       builder.RegisterType<Cars>().As<ICars>().PropertiesAutowired();
-      builder.RegisterType<HomeController>().AsSelf().PropertiesAutowired();
     }
 
     // Configure is where you add middleware. This is called after

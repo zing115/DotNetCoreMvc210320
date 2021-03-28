@@ -1,19 +1,39 @@
 ﻿@using Mvc1Autofac.Services
-@inject UseTheForce TheForce
 @model UseTheForce
+
+@inject UseTheForce TheForce
+@inject ICars Car
+@inject MyCars_Table MyCars
+@inject IFighter_Autofac EuroFighter
+@inject Secret Morgan
+@inject Secret Zing
+
 @{
   ViewData["Title"] = "Home Page";
-  
+
   TheForce.Jedi.Name = "Luke Skywalker";
   TheForce.Cars.Brand = "Toyota";
   TheForce.Cars.Name = "GR-86";
+  Car.Name = "Nissan GTR";
+
+  Zing.Name = "Capris";
+  Morgan.Name = "Morgan";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+  <h1 class="display-4">Welcome</h1>
+  <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    <span class="btn btn-primary"> @TheForce.Jedi.GetName() </span>
-    <span class="btn btn-warning"> @TheForce.Cars.GetBrand() @TheForce.Cars.GetName() </span>
-    <span class="btn btn-success"> @Model.Cars.GetName() </span>
+  <span class="btn btn-primary"> @TheForce.Jedi.GetName() </span>
+  <span class="btn btn-warning"> @TheForce.Cars.GetBrand() @TheForce.Cars.GetName() </span>
+  <span class="btn btn-success"> @Model.Cars.GetName() </span>
+
+  <span class="btn btn-dark"> @Car.Name </span>
+  <span class="btn btn-lg btn-dark"> @MyCars.Brand @MyCars.Name </span>
+
+  <span class="btn btn-sm btn-info"> @EuroFighter.GetName() </span>
+
+  <span class="btn btn-warning"> @Zing.Name </span>
+  <span class="btn btn-warning"> @Morgan.Name </span>
 </div>
+
