@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "3YCQiIz6K6aHIIz+73SYHPZKx2AJVnF2R8pDmtqnFI00/WbL+0UhiqBOtDa9pk78N3dv/O16B179aHjIValFMg==",
+  "dgSpecHash": "MZAYelWxht6Mk+PJ0qHneMx3K2mU2MpOsCl+HKQxThNHAE8pwxonsF8kbNHRasLsxY33L0vMkNDaiiPi5VRH7A==",
   "success": true,
-  "projectFilePath": "C:\\Z\\git\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj",
+  "projectFilePath": "c:\\Z\\git\\DotNetCoreMvc210320\\Mvc1Autofac\\Mvc1Autofac.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\polym\\.nuget\\packages\\autofac\\6.1.0\\autofac.6.1.0.nupkg.sha512",
-    "C:\\Users\\polym\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",
-    "C:\\Users\\polym\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
-    "C:\\Users\\polym\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+    "C:\\Users\\TP1903019\\.nuget\\packages\\autofac\\6.1.0\\autofac.6.1.0.nupkg.sha512",
+    "C:\\Users\\TP1903019\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",
+    "C:\\Users\\TP1903019\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\TP1903019\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
   ],
   "logs": []
 }
