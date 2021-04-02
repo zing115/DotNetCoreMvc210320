@@ -16,10 +16,14 @@ namespace Mvc1Autofac.Controllers
   {
     public UseTheForce TheForce { get; set; }
 
+    public ICars Car { get; set; }
+    public Jedi Jedi { get; set; }
+
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)//, UseTheForce UseTheForce)
+    public HomeController(ILogger<HomeController> logger, ICars Car)//, UseTheForce UseTheForce)
     {
+      this.Car = Car;
       _logger = logger;
       //this.UseTheForce = UseTheForce;
     }
@@ -35,8 +39,10 @@ namespace Mvc1Autofac.Controllers
     public IActionResult Index()
     {
       TheForce.Cars.Name = "Nissan 300Z";
+      Car.Name = "ZZZ";
+      Jedi.Name = "KK";
 
-      return View(TheForce);
+      return View(Car);
     }
 
     public IActionResult Privacy()

@@ -74,39 +74,53 @@ namespace Mvc1Autofac
         .Trim().Split(',').ToList().ForEach(_namespace =>
         {
           Assembly.Load(_namespace).GetTypes()
-            .Where(_types => !_types.IsInterface)
-            .Where(_types =>
-              _types.GetCustomAttributes().Contains(new Inject()) ||
-              _types.Name.EndsWith("Controller", StringComparison.Ordinal) ||
-              _types.Name.EndsWith("Force", StringComparison.Ordinal) ||
-              _types.Name.EndsWith("_Autofac", StringComparison.Ordinal) ||
-              _types.Name.EndsWith("_Table", StringComparison.Ordinal)
-            ).ToList().ForEach(_type =>
-            { //if (!_type.IsInterface)
-              builder.RegisterType(_type).As(
-                Assembly.Load(_namespace).GetTypes().FirstOrDefault(_interfaceType => _interfaceType.Name.Equals($"I{_type.Name}", StringComparison.Ordinal)) ?? _type
+            .Where(type1 => !type1.IsInterface)
+            .Where(type2 =>
+              type2.GetCustomAttributes().Contains(new Inject()) || // [Inject] class
+              type2.Name.EndsWith("Controller", StringComparison.Ordinal) ||
+              type2.Name.Equals("HomeController") ||
+              type2.Name.EndsWith("Force", StringComparison.Ordinal) ||
+              type2.Name.EndsWith("_Autofac", StringComparison.Ordinal) ||
+              type2.Name.EndsWith("_Table", StringComparison.Ordinal)
+            ).ToList().ForEach(type3 =>
+            {
+              builder.RegisterType(type3).As(
+                Assembly.Load(_namespace).GetTypes().FirstOrDefault(
+                  _interfaceType => _interfaceType.Name.Equals(type3.GetInterfaces().FirstOrDefault()?.Name, StringComparison.Ordinal))
+                //_interfaceType => _interfaceType.Name.Equals($"I{type3.Name}", StringComparison.Ordinal))
+                ?? type3
               ).PropertiesAutowired();
             });
           Assembly.Load(_namespace).GetTypes()
-            .Where(_types => !_types.IsInterface)
-            .Where(_types =>
-              _types.GetCustomAttributes().Contains(new InjectSingleton())
-            ).ToList().ForEach(_type =>
-            { //if (!_type.IsInterface)
-              builder.RegisterType(_type).As(
-                Assembly.Load(_namespace).GetTypes().FirstOrDefault(_interfaceType => _interfaceType.Name.Equals($"I{_type.Name}", StringComparison.Ordinal)) ?? _type
-              ).SingleInstance().PropertiesAutowired();
+            .Where(type1 => !type1.IsInterface)
+            .Where(type2 =>
+              type2.GetCustomAttributes().Contains(new InjectSingleton()) // [InjectSingleton] class
+            ).ToList().ForEach(type3 =>
+            {
+              builder.RegisterType(type3).As(
+                Assembly.Load(_namespace).GetTypes().FirstOrDefault(
+                  _interfaceType => _interfaceType.Name.Equals(type3.GetInterfaces().FirstOrDefault()?.Name, StringComparison.Ordinal))
+                //_interfaceType => _interfaceType.Name.Equals($"I{type3.Name}", StringComparison.Ordinal)) 
+                ?? type3
+              ).PropertiesAutowired().SingleInstance();
             });
           /*
-          builder.RegisterAssemblyTypes(Assembly.Load(_namespace))
-            .Where(type => type.Name.EndsWith("_Autofac", StringComparison.Ordinal))
-            .AsSelf().PropertiesAutowired();
+            {
+              builder.RegisterType(_type).As(
+                Assembly.Load(_namespace).GetTypes().FirstOrDefault(
+                  _interfaceType => _interfaceType.Name.Equals($"I{_type.Name}", StringComparison.Ordinal))
+                ?? _type
+              ).SingleInstance().PropertiesAutowired();
+              builder.RegisterAssemblyTypes(Assembly.Load(_namespace))
+                .Where(type => type.Name.EndsWith("_Autofac", StringComparison.Ordinal))
+                .AsSelf().PropertiesAutowired();
+            }
           */
         });
       //builder.RegisterType<UseTheForce>().AsSelf().PropertiesAutowired();
-      builder.RegisterType<Jedi>().AsSelf().PropertiesAutowired();
+      //builder.RegisterType<Jedi>().AsSelf().PropertiesAutowired();
       //builder.RegisterType<HomeController>().AsSelf().PropertiesAutowired();
-      builder.RegisterType<Cars>().As<ICars>().PropertiesAutowired();
+      //builder.RegisterType<Cars>().As<ICars>().PropertiesAutowired();
     }
 
     // Configure is where you add middleware. This is called after

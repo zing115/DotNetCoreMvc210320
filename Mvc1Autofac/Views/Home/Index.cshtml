@@ -1,5 +1,5 @@
 ﻿@using Mvc1Autofac.Services
-@model UseTheForce
+@model Cars
 
 @inject UseTheForce TheForce
 @inject ICars Car
@@ -26,7 +26,8 @@
 
   <span class="btn btn-primary"> @TheForce.Jedi.GetName() </span>
   <span class="btn btn-warning"> @TheForce.Cars.GetBrand() @TheForce.Cars.GetName() </span>
-  <span class="btn btn-success"> @Model.Cars.GetName() </span>
+  @*<span class="btn btn-success"> @Model.Cars.GetName() </span>*@
+  <span class="btn btn-success"> @Model.Name </span>
 
   <span class="btn btn-dark"> @Car.Name </span>
   <span class="btn btn-lg btn-dark"> @MyCars.Brand @MyCars.Name </span>
@@ -35,5 +36,6 @@
 
   <span class="btn btn-warning"> @Zing.Name </span>
   <span class="btn btn-warning"> @Morgan.Name </span>
+  <span> @Car.GetType().GetInterfaces().FirstOrDefault().Name </span>
 </div>
 
