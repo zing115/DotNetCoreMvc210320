@@ -40,6 +40,26 @@ namespace mvc1.Migrations
 
                     b.ToTable("Cars");
                 });
+
+            modelBuilder.Entity("mvc1.Data.Jedi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Jedi");
+                });
 #pragma warning restore 612, 618
         }
     }

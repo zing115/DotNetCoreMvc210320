@@ -18,6 +18,16 @@ namespace mvc1.Data
         }
 
         public virtual DbSet<Car> Cars { get; set; }
+        public virtual DbSet<Jedi> Jedis { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=localhost;Database=Test210404;Trusted_Connection=True;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +42,15 @@ namespace mvc1.Data
                 entity.Property(e => e.Name).HasMaxLength(50);
 
                 entity.Property(e => e.UpdateWhen).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<Jedi>(entity =>
+            {
+                entity.ToTable("Jedi");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(128);
             });
 
             OnModelCreatingPartial(modelBuilder);
